@@ -1,0 +1,44 @@
+.display{
+	font-size: 30em;
+}
+
+.timer_wrapper{
+}
+
+.timer_button{
+	font-size: 4em;
+}
+
+.options_button{
+	font-size: 1.5em;
+}
+
+.options_button:link{
+	color:initial;
+	text-decoration: none;
+}
+
+.options_button:visited{
+	text-decoration: none;
+	color: initial;
+}
+.options_button:hover{
+	text-decoration: underline;
+}
+
+.options_wrapper{
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: #eeeeee;
+	width: 18em;
+	margin: 0 auto;
+	font-size: 1.5em;
+}
+
+.sound_options{
+	padding: 10px;
+}
+
+body{
+	text-align: center;
+}
