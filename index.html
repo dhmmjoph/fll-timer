@@ -17,9 +17,10 @@
 
 		<br/>
 
-		<a class="options_button" id="options_button" onclick="toggleOptions()">Options </a>
+		<button class="options_button" id="options_button" onclick="toggleOptions()">Options </button>
+		<br/> <br/>
 		<div class="options_wrapper" id="options_wrapper">
-			<span class="sound_options">
+			<div class="sound_options options_panel">
 				Sound Effects:
 				<br/>
 				<input type="checkbox" id="start_sound" checked>Start</input>:
@@ -28,7 +29,7 @@
 					<option value="mariokart">Mario Kart</option>
 				</select>
 				<br/>
-				<input type="checkbox" id="30_second_warning" checked>30 Second Warning</input>
+				<input type="checkbox" id="30_second_warning" checked>30 Second Warning</input>:
 				<select id="select_30secs_sound">
 					<option value="laser">Laser</option>
 					<option value="church_bell">Church Bells</option>
@@ -39,7 +40,7 @@
 					<option value="buzzer">Buzzer</option>
 					<option value="ding">Ding Ding</option>
 				</select>
-			</span>
+			</div>
 		</div>
 		<script src="/timer.js"></script>
 	</body>

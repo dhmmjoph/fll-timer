@@ -30,7 +30,7 @@ function timer(){
      	f_playEndSound();
      }
      
-     //TODO: reset() automatically after ~5 secs
+     resetAfter5Seconds();
      return;
   }
 
@@ -119,6 +119,17 @@ function toggleOptions(){
   }
 }
 
+function resetAfter5Seconds(){
+  var fiveCount = 5;
+  function silentCountdown(){
+    fiveCount=fiveCount-1;
+    if (fiveCount <=0){
+      reset();
+      return;
+    }
+  }
+  setInterval(silentCountdown, 1000);
+}
 
 
 

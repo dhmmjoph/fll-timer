@@ -13,7 +13,7 @@
 	font-size: 1.5em;
 }
 
-.options_button:link{
+/*.options_button:link{
 	color:initial;
 	text-decoration: none;
 }
@@ -24,6 +24,18 @@
 }
 .options_button:hover{
 	text-decoration: underline;
+}*/
+
+.options_wrapper{
+	display: flex;
+	display: -webkit-box;
+  	display: -moz-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .options_wrapper{
@@ -33,6 +45,11 @@
 	width: 18em;
 	margin: 0 auto;
 	font-size: 1.5em;
+	height: 100%;
+}
+
+.options_panel{
+	display: inline-block;
 }
 
 .sound_options{
@@ -41,4 +58,8 @@
 
 body{
 	text-align: center;
+}
+
+ul{
+	list-style-type: 
 }
