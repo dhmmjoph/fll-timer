@@ -131,8 +131,23 @@ function resetAfter5Seconds(){
   setInterval(silentCountdown, 1000);
 }
 
+function toggle(){
+  if (isRunning){
+    pause();
+  }
+  else{
+    start();
+  }
+}
 
-
+document.addEventListener('keypress', function(event) {
+    if(event.key == ' ' || event.key == "Spacebar") {
+        toggle();
+    }
+    else if (event.key == 'r'){
+      reset();
+    }
+});
 
 
 

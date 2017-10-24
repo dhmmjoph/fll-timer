@@ -60,6 +60,12 @@ body{
 	text-align: center;
 }
 
-ul{
-	list-style-type: 
+body ul{
+	text-align: left;
+}
+
+.about_wrapper {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 800px;
 }
