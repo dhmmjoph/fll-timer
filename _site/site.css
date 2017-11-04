@@ -119,7 +119,9 @@ body ul{
 }
 .new_post_img{
 	width:auto;
-	height:15em;
+	max-width: 25em;
+	height: auto;
+	max-height:15em;
 }
 .new_post_head{
 	font-size:x-large;

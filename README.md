@@ -5,9 +5,9 @@ equally suitable for practice and match play.
 ## Current Competitions
 * FIRST LEGO League (FLL)
 * VEX Robotics Competition (VRC)/VEXU
+* VEX IQ Challenge (VIQC)
 
 ## Planned Future Competitions
-* VEX IQ Challenge (VIQC)
 * FIRST Tech Challenge (FTC)
 * FIRST Robotics Competition (FRC)
 
