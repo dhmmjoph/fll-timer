@@ -1,54 +1,40 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>FLL Timer</title>
+		<title>Robotics Timers - John Holbrook</title>
 		<script src="http://johnholbrook.us/analytics.js"></script>
 		<link rel="stylesheet" type="text/css" href="/site.css">
 		<link rel="shortcut icon" href="/favicon.ico">
 	</head>
 	<body>
-		<div class="timer_wrapper">
-			<div class="display" id="timer_display"></div>
 
-			<button class="timer_button" onclick="start()">Start</button>
-			<button class="timer_button" onclick="pause()">Pause</button>
-			<button class="timer_button" onclick="reset()">Reset</button>
+		<h1>Robotics Timers</h1>
 
-		</div>
-
+		<h3>Select timer by competition</h3>
 		<br/>
 
-		<button class="options_button" id="options_button" onclick="toggleOptions()">Options </button>
-		<br/> <br/>
-		<div class="options_wrapper" id="options_wrapper">
-			<div class="sound_options options_panel">
-				Sound Effects:
-				<br/>
-				<input type="checkbox" id="start_sound" checked>Start</input>:
-				<select id="select_start_sound">
-					<option value="charge">Charge!</option>
-					<option value="mariokart">Mario Kart</option>
-				</select>
-				<br/>
-				<input type="checkbox" id="30_second_warning" checked>30 Second Warning</input>:
-				<select id="select_30secs_sound">
-					<option value="laser">Laser</option>
-					<option value="church_bell">Church Bells</option>
-				</select>
-				<br/>
-				<input type="checkbox" id="time_up_sound" checked>End Of Timer</input>:
-				<select id="select_end_sound">
-					<option value="buzzer">Buzzer</option>
-					<option value="ding">Ding Ding</option>
-				</select>
-			</div>
-		</div>
-		<script src="/timer.js"></script>
+		<div class="new_posts_wrapper">
+			<span class="new_post">
+				<a class="new_post_link" href="/fll">
+					<img class="new_post_img" src="/img/fll_logo.jpg">
+					<div class="new_post_head">FLL</div>
+				</a>
+			</span>
 
-		<small>
-			<a href="http://johnholbrook.us">Home</a> |
-			<a href="/about.html">About</a> |
-			<a href="https://github.com/dhmmjoph/fll-timer">GitHub</a>
-		</small>
+			<span class="new_post">
+				<a class="new_post_link" href="/vrc">
+					<img class="new_post_img" src="/img/vrc_logo.jpg">
+					<div class="new_post_head">VRC/VEXU</div>
+				</a>
+			</span>
+		</div>
+
+
+
+		<br/><br/>
+		<small>LEGO&reg; is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site.</small>
+		<br/>
+		<small>FIRST® LEGO® League is a jointly held trademark of FIRST® (www.firstinspires.org) and the LEGO Group, neither of which is overseeing,
+		involved with, or responsible for this activity, product, or service. </small>
 	</body>
 </html>

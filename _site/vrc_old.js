@@ -1,9 +1,15 @@
-var RESET_VALUE = 150;
+var AUTON_TIME = 15;
+var TELEOP_TIME = 105;
+var RESET_VALUE = AUTON_TIME;
 var count=RESET_VALUE;
 var isRunning = false;
 var counter = null;
+var currentMode = "auton";
+var event = "vrc"
+
 
 var display = document.getElementById("timer_display");
+var modeDisplay = document.getElementById("mode_display");
 var playStartSound = document.getElementById("start_sound");
 var play30SecsSound = document.getElementById("30_second_warning");
 var playEndSound = document.getElementById("time_up_sound");
@@ -14,10 +20,12 @@ var optionsPanel = document.getElementById("options_wrapper");
 optionsPanel.style.display = "none";
 optionsButton.innerHTML = "Show Options"
 
+var startButtonText = document.getElementById("start_pause");
+startButtonText.innerHTML = "Begin Autonomous";
 
 //initialize the timer display
 display.innerHTML = secsToClock(RESET_VALUE);
-
+modeDisplay.innerHTML = "Autonomous";
 
 function timer(){
   count=count-1;
@@ -29,8 +37,13 @@ function timer(){
      if(playEndSound.checked){
      	f_playEndSound();
      }
-     
-     resetAfter5Seconds();
+     if (currentMode = "auton"){
+      //set up for starting teleop
+      setUpForTeleop();
+     }
+     else{
+      resetAfter5Seconds();
+     }
      return;
   }
 
@@ -44,6 +57,16 @@ function timer(){
   }
 };
 
+function setUpForTeleop(){
+  pause();
+  currentMode = 'teleop';
+  startButtonText.innerHTML = "Begin Teleop";
+  RESET_VALUE = TELEOP_TIME;
+  count = RESET_VALUE;
+  display.innerHTML = secsToClock(count);
+  modeDisplay.innerHTML = "Tele-op";
+}
+
 function start(){
 	//play the "start" sound effect, if applicable
 	if (count === RESET_VALUE && playStartSound.checked){
@@ -52,17 +75,30 @@ function start(){
  	if (!isRunning){
  		isRunning = true;
  		counter = setInterval(timer, 1000);
+    startButtonText.innerHTML = "Pause";
  	}
 }
 
 function pause(){
 	clearInterval(counter);
+  startButtonText.innerHTML = "Resume";
 	isRunning = false;
 }
 
 function reset(){
 	pause();
-	count = RESET_VALUE;
+  if ((event == 'vrc') || (event == 'vexu')){
+    RESET_VALUE = AUTON_TIME;
+    count = AUTON_TIME;
+    currentMode = 'auton';
+    startButtonText.innerHTML = "Begin Autonomous";
+  }
+  else{//skills
+    count = TELEOP_TIME;
+    currentMode = 'teleop';
+    startButtonText.innerHTML = "Begin";
+  }
+	//count = RESET_VALUE;
 	display.innerHTML = secsToClock(count);
 }
 
@@ -138,6 +174,22 @@ function toggle(){
   else{
     start();
   }
+}
+
+function updateMode(){
+  event = document.getElementById('select_mode').value;
+  if (event == 'vrc'){
+    AUTON_TIME = 15;
+    TELEOP_TIME = 105;
+  }
+  else if (event = 'vexu'){
+    AUTON_TIME = 45;
+    TELEOP_TIME = 75;
+  }
+  else if (event = 'skills'){
+    TELEOP_TIME = 60;
+  }
+  reset();
 }
 
 document.addEventListener('keypress', function(event) {
