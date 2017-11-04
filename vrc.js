@@ -22,6 +22,7 @@ var mode_display = document.getElementById("mode_display");
 var playStartSound = document.getElementById("start_sound");
 var play30SecsSound = document.getElementById("30_second_warning");
 var playEndSound = document.getElementById("time_up_sound");
+var playAutonEndSound = document.getElementById("end_auton_sound");
 var optionsButton = document.getElementById("options_button");
 var optionsPanel = document.getElementById("options_wrapper");
 var startButtonText = document.getElementById("start_pause");
@@ -57,10 +58,12 @@ function timer(){
      clearInterval(counter);
      //counter ended, do something here
      display.innerHTML = secsToClock(0);
-     if(playEndSound.checked){
+     if (current_mode == "auton" && playAutonEndSound.checked){
+      f_playAutonEndSound();
+     }
+     else if(current_mode == "teleop" && playEndSound.checked){
       f_playEndSound();
      }
-     
      if (current_mode === "auton"){
       prepareForTeleop();
      }
@@ -246,6 +249,10 @@ function f_playEndSound(){
   endSound.play();
 }
 
+function f_playAutonEndSound(){
+  var sound = new Audio("/sounds/pause.mp3");
+  sound.play();
+}
 /**************************************************************
 /
 /           TOGGLE OPTIONS
