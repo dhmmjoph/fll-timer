@@ -207,7 +207,10 @@ function toggleOptions(){
 /*************************************************************/
 document.addEventListener('keypress', function(event) {
     if(event.key == ' ' || event.key == "Spacebar") {
-        toggle();
+        //console.log(document.activeElement.className);
+        if (document.activeElement.className != "timer_button"){
+          toggle();
+        }
     }
     else if (event.key == 'r'){
       reset();
