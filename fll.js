@@ -4,6 +4,7 @@
 /
 /*************************************************************/
 var RESET_VALUE = 150;
+//var RESET_VALUE = 15;
 var count=RESET_VALUE;
 var isRunning = false;
 var counter = null;
@@ -46,6 +47,8 @@ function timer(){
   count=count-1;
   if (count <= 0)
   {
+    console.log("timer ended");
+    pause();
      clearInterval(counter);
      //counter ended, do something here
      display.innerHTML = secsToClock(0);
@@ -75,6 +78,7 @@ function timer(){
 /
 /*************************************************************/
 function start(){
+  console.log("Starting timer");
   //play the "start" sound effect, if applicable
   if (count === RESET_VALUE && playStartSound.checked){
     f_playStartSound();
@@ -87,15 +91,18 @@ function start(){
 }
 
 function pause(){
+  console.log("Pausing timer");
   clearInterval(counter);
   startButtonText.innerHTML = "Start";
   isRunning = false;
 }
 
 function reset(){
-  pause();
-  count = RESET_VALUE;
-  display.innerHTML = secsToClock(count);
+  location.reload();
+  // pause();
+  // console.log("Resetting timer");
+  // count = RESET_VALUE;
+  // display.innerHTML = secsToClock(count);
 }
 
 function toggle(){
@@ -213,7 +220,9 @@ document.addEventListener('keypress', function(event) {
         }
     }
     else if (event.key == 'r'){
-      reset();
+        if (document.activeElement.className != "timer_button"){
+          reset();
+        }
     }
 });
 
