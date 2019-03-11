@@ -1,3 +1,9 @@
+# ARCHIVED!
+This repository has been archived and replaced by the fll-timer.com [website](http://fll-timer.com) and 
+[repository](https://github.com/dhmmjoph/fll-timer.com). The code in this repository 
+(especially the timers for non-FLL competitions) mostly works, but there are some interesting bugs in the automatic reset
+code. Those bugs have been fixed in the new repo.
+
 # Robotics Timers
 Simple, customizable match timers for various educational robotics competitions. Where possible, timers are designed to be
 equally suitable for practice and match play.
